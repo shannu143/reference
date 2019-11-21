@@ -1,0 +1,23 @@
+<p>practice1 works!</p>
+
+<div class="container">
+    <button class="btn btn-primary" [disabled]="!allowMeToClick" 
+    (click)="createServer()">Click me if you can</button>
+    <p>{{serverStatus}}</p>
+    {{allowMeToClick}}
+</div>
+
+<input type="text" class="form-control" 
+(input)="onKeyUPP($event)"/>
+<input type="text" class="form-control" 
+[(ngModel)]="serverName"/>
+
+{{serverName}}
+
+<p *ngIf="serverCreated;else noServer">Server is created</p>
+<ng-template #noServer>
+    <p>No server was created</p>
+</ng-template> 
+
+
+<p [ngStyle]='{color:getColor()}'>Server status is {{isOnline}}</p> 
